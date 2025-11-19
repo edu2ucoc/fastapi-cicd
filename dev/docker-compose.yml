@@ -27,6 +27,7 @@ services:
     command: uvicorn main:app --host 0.0.0.0 --port 8000
     volumes:
       - ./app:/app  # 호스트OS 경로(개발PC) / 컨테이너상 경로 동기화
+    # 컨테이너상에 세팅된 OS에 환경변수로 세팅
     environment:
       DATABASE_URL: "mysql+pymysql://guest:1234@db:3306/memo"
     networks:
