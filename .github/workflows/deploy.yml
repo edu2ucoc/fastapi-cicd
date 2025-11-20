@@ -39,24 +39,26 @@ jobs:
             #     target: "/home/ubuntu/projects"
 
             # - name: Run Script and Service Restart 
-              uses: appleboy/ssh-action@master
-              with:
-                host: ${{ secrets.EC2_HOST }}
-                username: ${{ secrets.EC2_USERNAME }}
-                key: ${{ secrets.EC2_KEY }}
-                port: 22
-                script: |
-                  # 1차로 ec2 세팅을 진행하고 나서 CI/CD
-                  # ec2에 접속하고 나서 진행할 업무 기술
-                  # 해당 프로젝트 폴더로 이동(cd)
-                  cd /home/ubuntu/projects
+            #  uses: appleboy/ssh-action@master
+            #  with:
+            #     host: ${{ secrets.EC2_HOST }}
+            #     username: ${{ secrets.EC2_USERNAME }}
+            #     key: ${{ secrets.EC2_KEY }}
+            #     port: 22
+            #     script: |
+            #       # 1차로 ec2 세팅을 진행하고 나서 CI/CD
+            #       # ec2에 접속하고 나서 진행할 업무 기술
+            #       # 해당 프로젝트 폴더로 이동(cd)
+            #       cd /home/ubuntu/projects
 
-                  # 현재 프로젝트내 파일 확인
-                  ls -al
+            #       # 현재 프로젝트내 파일 확인
+            #       ls -al
 
-                  # 가상 환경을 구동하지 않고, 가상환경의 명령어 직접 사용
-                  # 추가(최초)로 설치된 패키지를 설치
-                  ./web/bin/pip install -r requirements.txt
+            #       # 가상 환경을 구동하지 않고, 가상환경의 명령어 직접 사용
+            #       # 추가(최초)로 설치된 패키지를 설치
+            #       ./web/bin/pip install -r requirements.txt
 
-                  # uvicorn 서비스를 재가동(재시작: restart) -> sudo
-                  sudo systemctl restart hello.service
+            #       # uvicorn 서비스를 재가동(재시작: restart) -> sudo
+            #       sudo systemctl restart hello.service
+
+
