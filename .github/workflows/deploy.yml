@@ -81,7 +81,7 @@ jobs:
                   cd /home/${{ secrets.EC2_USERNAME }}/deploy/dev
 
                   # 환경변수 생성
-                  echo "DOCKER_USERNAME=${{ secrets.EC2_USERNAME }}" > .env
+                  echo "DOCKER_USERNAME=${{ secrets.DOCKER_USERNAME }}" > .env
                   echo "MYSQL_ROOT_PASSWORD=${{ secrets.MYSQL_ROOT_PASSWORD }}" >> .env
                   echo "MYSQL_USER=${{ secrets.MYSQL_USER }}" >> .env
                   echo "MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}" >> .env
