@@ -23,3 +23,11 @@ docker-compose down
 - EC2_HOST              -> 14...
 - EC2_USERNAME          -> ubu..
 - EC2_KEY               -> xxx.pem 파일 내용 전부
+
+# Docker 기반 CI/CD 흐름도
+로컬 PC 개발 -> GIT 특정브런치 PUSH -> 이벤트 감지 -> Git Action 작동
+-> xxx.yml에 상세하게 잡들 기술 -> 커스텀으로 구성
+-> 소스코드를 체크아웃 (git action에서 제공하는 리눅스에 소스코드 체크아웃)
+-> 검증
+-> 도커 허브 로그인 -> git action에서 제공하는 리눅스에 세션이 생성됨(사용자명,엑세스토큰 제공(시크릿변수))
+-> fastapi 앱, 커스텀된 nginx 이미지를 Docketfile 생성하여(build) -> 푸시(본인 계정의 도커허브 레퍼지토리상에)
